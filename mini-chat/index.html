@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Чат с авторизацией через Google</title>
+  <style>
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100%;
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    .chat-header {
+      background-color: #1a73e8;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 16px;
+      text-align: center;
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: scroll;
+      padding: 16px;
+    }
+    .chat-message {
+      margin-bottom: 16px;
+    }
+    .chat-message-name {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .chat-message-text {
+      font-size: 16px;
+    }
+    .chat-form {
+      display: flex;
+      flex-direction: row;
+      padding: 16px;
+      background-color: #f0f0f0;
+    }
+    .chat-form-input {
+      flex: 1;
+      font-size: 16px;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      margin-right: 16px;
+    }
+    .chat-form-button {
+      font-size: 16px;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      background-color: #1a73e8;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">Чат</div>
+    <div class="chat-messages"></div>
+    <div class="chat-form">
+      <input type="text" class="chat-form-input" placeholder="Введите сообщение...">
+      <button class="chat-form-button">Отправить</button>
+    </div>
+  </div>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    gapi.load('auth2', function() {
+      gapi.auth2.init({
+        client_id: 'YOUR_CLIENT_ID_HERE'
+      });
+    });
+
+    var currentUser;
+
+    function updateChatName() {
+      var nameElement = document.getElementById('chat-name');
+      nameElement.innerHTML = currentUser.getBasicProfile().getName();
+    }
+
+    function onSignIn(googleUser) {
+      currentUser = googleUser;
+      updateChatName();
+    }
+
+    function onSignOut() {
+      currentUser = null;
+      updateChatName();
+    }
+
+    function displayMessage(name, text) {
+      var messagesElement = document.querySelector('.chat-messages');
+      var messageElement = document.createElement('div');
+      messageElement.classList.add('chat-message');
+
+      var nameElement = document.createElement('div');
+      nameElement.classList.add('chat-message-name');
+      nameElement.textContent = name + ':';
+      messageElement.appendChild(nameElement);
+
+      var textElement = document.createElement('div');
+      textElement.classList.add('chat-message-text');
+      textElement.textContent = text;
+      messageElement.appendChild(textElement);
+
+      messagesElement.appendChild(messageElement);
+      messagesElement.scrollTop = messagesElement.scrollHeight;
+    }
+
+    function sendMessage() {
+        var inputElement = document.querySelector('.chat-form-input');
+      var text = inputElement.value.trim();
+      if (text === '') {
+        return;
+      }
+      inputElement.value = '';
+
+      var name = currentUser.getBasicProfile().getName();
+      displayMessage(name, text);
+
+      // Отправка сообщения на сервер
+      // Вместо этого нужно использовать свой собственный сервер для обработки сообщений
+      // Здесь приведен только пример кода
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/send-message', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({
+        name: name,
+        text: text
+      }));
+    }
+
+    var formButton = document.querySelector('.chat-form-button');
+    formButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      if (currentUser) {
+        sendMessage();
+      } else {
+        alert('Пожалуйста, войдите в свой аккаунт Google, чтобы отправлять сообщения');
+      }
+    });
+  </script>
+</body>
+</html>
+
