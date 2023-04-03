@@ -22,86 +22,9 @@
         </div>
     </main>
     <footer>
-        <a href="https://youtu.be/PiTcQ5Rpkgw" title="не реклама">первое видео</a> <br/>
-        <a href="" title="не реклама">second video</a>
+        <a href="https://youtu.be/PiTcQ5Rpkgw" title="не реклама">первое видео</a> <br />
+        <a href="" title="не реклама">second video і</a>
     </footer>
-
-    <div class="calculator">
-        <input type="text" id="display" disabled>
-        <button onclick="addToDisplay('7')">7</button>
-        <button onclick="addToDisplay('8')">8</button>
-        <button onclick="addToDisplay('9')">9</button>
-        <button onclick="addToDisplay('/')">÷</button>
-        <button onclick="addToDisplay('4')">4</button>
-        <button onclick="addToDisplay('5')">5</button>
-        <button onclick="addToDisplay('6')">6</button>
-        <button onclick="addToDisplay('*')">×</button>
-        <button onclick="addToDisplay('1')">1</button>
-        <button onclick="addToDisplay('2')">2</button>
-        <button onclick="addToDisplay('3')">3</button>
-        <button onclick="addToDisplay('-')">-</button>
-        <button onclick="addToDisplay('0')">0</button>
-        <button onclick="addToDisplay('.')">.</button>
-        <button onclick="calculate()">=</button>
-        <button onclick="addToDisplay('+')">+</button>
-        <button onclick="clearDisplay()">C</button>
-    </div>
-    <style>
-        .calculator {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            grid-gap: 5px;
-            width: 300px;
-            margin: 0 auto;
-        }
-
-        input[type="text"] {
-            grid-column: 1 / span 4;
-            height: 40px;
-            font-size: 20px;
-            text-align: right;
-            padding: 5px;
-        }
-
-        button {
-            border: none;
-            border-radius: 5px;
-            font-size: 20px;
-            height: 40px;
-            background-color: #ccc;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #ddd;
-        }
-
-        button:active {
-            background-color: #aaa;
-        }
-    </style>
-    <script>
-        let display = document.getElementById('display');
-
-        function addToDisplay(val) {
-            display.value += val;
-        }
-
-        function clearDisplay() {
-            display.value = '';
-        }
-
-        function calculate() {
-            try {
-                let result = eval(display.value);
-                display.value = result;
-            } catch (error) {
-                display.value = 'Error';
-            }
-        }
-
-    </script>
 </body>
 
 </html>
