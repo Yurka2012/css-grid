@@ -29,7 +29,7 @@
 
   /*grid-template-columns: repeat(auto-fill, 100px); */ /* заполнит так на сколько хватит мести круто да? а теперь авто фит! */
   /* grid-template-columns: repeat(auto-fit, 100px); */ /* а щас он смотри еще и сколько елементов */
-  /*grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));*/ /* тут у нас семь столбцов а ширина секций зависит от размера экрана */
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr)); /* тут у нас семь столбцов а ширина секций зависит от размера экрана */
   /* посмотреть это можно в ./img/как_это_выглядит_у_меня_1.png */
 
 
@@ -38,7 +38,7 @@
   /* короче так же так что не буду зацикливаться */
 
 
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
   /* grid-template-rows: repeat(3, 1fr); */
-  grid-auto-rows: 100px; /* так же все роботает и для столбцов и для строк */
+  /*grid-auto-rows: 100px;*/ /* так же все роботает и для столбцов и для строк */
 }
