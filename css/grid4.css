@@ -1,12 +1,21 @@
 .grid4 {
-  display: grid;
-  grid-template/*-areas*/:
+    height: 500px; /* стандартное ксс свойство для обозначения высоты*/
+    display: grid;
+    grid-template/*-areas*/:
     "e . . . . " 100px
     ". . . g g " 100px
     "d d . g g" 100px
-    / 1fr 1fr 1fr 1fr 1fr;
+    / 100px 100px 100px 100px 100px;
+  /* свойства для выравнивания будут ниже */
+    justify-content: end; /* по горизонтали (start-end-center)*/
+  align-content: start; /* по вертикали (start-end-center-space...)*/
+  place-content: center;
+
+  /* теперь для выраавнивания ячейки */
+  /* justify-items: center;
+  align-items: end; */
+  /* круто? */
 }
-/* вписуем имена) */
 .grid_item4:nth-child(3) {
   grid-area: g;
 }
