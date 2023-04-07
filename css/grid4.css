@@ -1,0 +1,18 @@
+.grid4 {
+  display: grid;
+  grid-template/*-areas*/:
+    "e . . . . " 100px
+    ". . . g g " 100px
+    "d d . g g" 100px
+    / 1fr 1fr 1fr 1fr 1fr;
+}
+/* вписуем имена) */
+.grid_item4:nth-child(3) {
+  grid-area: g;
+}
+.grid_item4:nth-child(1) {
+  grid-area: e;
+}
+.grid_item4:nth-child(2) {
+  grid-area: d;
+}
