@@ -8,12 +8,12 @@
     / 100px 100px 100px 100px 100px;
   /* свойства для выравнивания будут ниже */
     justify-content: end; /* по горизонтали (start-end-center)*/
-  align-content: start; /* по вертикали (start-end-center-space...)*/
-  place-content: center;
+    align-content: start; /* по вертикали (start-end-center-space...)*/
+    place-content: center;
 
   /* теперь для выраавнивания ячейки */
-  /* justify-items: center;
-  align-items: end; */
+    justify-items: stretch; /* розтыгивает */
+    align-items: stretch;
   /* круто? */
 }
 .grid_item4:nth-child(3) {
