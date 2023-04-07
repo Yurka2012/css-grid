@@ -24,4 +24,7 @@
 }
 .grid_item4:nth-child(2) {
   grid-area: d;
+  justify-self: start; /* розтыгивает */
+  align-self: end;
+  /* для одного обьякта (к которому обращаемся) */
 }
