@@ -1,22 +1,13 @@
 .grid5 {
-    height: 500px; /* стандартное ксс свойство для обозначения высоты*/
-    display: grid;
-    grid-template/*-areas*/:
+  display: grid;
+  grid-template/*-areas*/:
     "h . . . . " 100px
     ". . . o o " 100px
     "p p . o o" 100px
     / 100px 100px 100px 100px 100px;
-  /* свойства для выравнивания будут ниже */
-    justify-content: end; /* по горизонтали (start-end-center)*/
-    align-content: start; /* по вертикали (start-end-center-space...)*/
-    place-content: center;
-
-  /* теперь для выраавнивания ячейки */
-    justify-items: stretch; /* розтыгивает */
-    align-items: stretch;
-  /* круто? */
 }
-.grid_item5:nth-child(3),#grid_item5:nth-child(3) {
+.grid_item5:nth-child(3),
+#grid_item5:nth-child(3) {
   grid-area: h;
 }
 .grid_item5:nth-child(1) {
@@ -24,7 +15,4 @@
 }
 .grid_item5:nth-child(2) {
   grid-area: p;
-  justify-self: start; /* розтыгивает */
-  align-self: end;
-  /* для одного обьякта (к которому обращаемся) */
 }
