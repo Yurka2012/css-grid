@@ -1,0 +1,17 @@
+.grid6 {
+    display: grid;
+    /* grid-template:
+    "first . . . . " 100px
+    ". . . second second "100px
+    "third third . second second" 100px
+      / 100px 100px 100px 100px 100px; */
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr); */
+
+    /* дальше будет толщина линий сетки */
+    /* grid-column-gap: 20px;
+    grid-row-gap: 1rem; */
+    grid-gap: 1rem 20px; 
+    /* горизонтали потом вертикали */
+}

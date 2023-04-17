@@ -1,13 +1,13 @@
 .grid5 {
+  height: 500px;
   display: grid;
-  grid-template/*-areas*/:
+  grid-template:
     "h . . . . " 100px
     ". . . o o " 100px
     "p p . o o" 100px
     / 100px 100px 100px 100px 100px;
 }
-.grid_item5:nth-child(3),
-#grid_item5:nth-child(3) {
+.grid_item5:nth-child(3) {
   grid-area: h;
 }
 .grid_item5:nth-child(1) {
